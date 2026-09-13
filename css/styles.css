@@ -117,18 +117,18 @@
    --color-semantic-alert-100: hsl(0, 96%, 48%);
 
    /**************** timing functions ****************/
-   --ease-basic-01: cubic-bezier(0.26, 0.1, 0.27, 1.55);
-   --ease-basic-02: cubic-bezier(0.17, 0.67, 0.83, 0.67);
-   --ease: cubic-bezier(0.19, 0.08, 0.46, 0.99);
-   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
-   --ease-in: cubic-bezier(0.33, 0.02, 0.84, 0.75);
-   --ease-out: cubic-bezier(0.05, 0.21, 0.66, 0.98);
-   --ease-in-out: cubic-bezier(0.38, 0, 0.57, 0.99);
-   --ease-linear: cubic-bezier(0.19, 0.08, 0.84, 0.75);
-   --ease-smooth: cubic-bezier(0.1, 0.7, 0.6, 0.9);
-   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
-   --ease-snappy-01: cubic-bezier(0.5, 0, 0.4, 0.98);
-   --ease-snappy-02: cubic-bezier(.17, .67, .83, .67);
+   --tf-ease-basic-01: cubic-bezier(0.26, 0.1, 0.27, 1.55);
+   --tf-ease-basic-02: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+   --tf-ease: cubic-bezier(0.19, 0.08, 0.46, 0.99);
+   --tf-ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+   --tf-ease-in: cubic-bezier(0.33, 0.02, 0.84, 0.75);
+   --tf-ease-out: cubic-bezier(0.05, 0.21, 0.66, 0.98);
+   --tf-ease-in-out: cubic-bezier(0.38, 0, 0.57, 0.99);
+   --tf-ease-linear: cubic-bezier(0.19, 0.08, 0.84, 0.75);
+   --tf-ease-smooth: cubic-bezier(0.1, 0.7, 0.6, 0.9);
+   --tf-ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+   --tf-ease-snappy-01: cubic-bezier(0.5, 0, 0.4, 0.98);
+   --tf-ease-snappy-02: cubic-bezier(.17, .67, .83, .67);
 
    /**************** radius ****************/
    --radius-000: 1px;
@@ -483,8 +483,6 @@ img {
 }
 
 
-
-
 .testimonial-carousel {
    display: grid;
    grid-auto-flow: column;
@@ -500,26 +498,31 @@ img {
    display: none;
 }
 
+.testimonial-carousel:hover {
+   cursor: grab;
+}
+
+.testimonial-carousel.is-dragging {
+   scroll-snap-type: none;
+   scroll-behavior: auto;
+   cursor: grabbing;
+}
 
 .testimonial-card {
-   scroll-snap-align: start;
    height: fit-content;
-   list-style: none;
-   background: var(--color-neutral-100);
-   /*border-radius: 8px;*/
-   display: flex;
-   cursor: grabbing;
    width: 98%;
-   /*padding-bottom: 15px;*/
-   /*align-items: center;
-   justify-content: center;*/
+   display: flex;
    flex-direction: column;
-
+   padding: 24px;
+   list-style: none;
+   cursor: grabbing;
+   background: var(--color-neutral-100);
    border: 1px solid var(--color-primary-900);
    border-radius: var(--br-border-radius-400);
-   padding: 24px;
+   scroll-snap-align: start;
    box-shadow: var(--bs-box-shadow-bottom-right-100);
 }
+
 
 .testimonial-image {
    width: 72px;
@@ -552,7 +555,7 @@ img {
    font-size: 1.25rem;
 }
 
-.slider-controls {
+.slider-control-buttons {
    display: flex;
    justify-content: center;
    gap: 32px;
@@ -563,16 +566,16 @@ img {
    width: 48px;
    height: 48px;
    padding: 12px;
-   border: 2px solid var(--color-primary-900);
-   background: var(--color-primary-900);
+   font-size: 1.1rem;
    color: var(--color-neutral-100);
+   background-color: var(--color-primary-900);
+   border: 2px solid var(--color-primary-900);
    border-radius: 50%;
    cursor: pointer;
-   font-size: 1.1rem;
-   transition: all 0.25s ease;
+   transition: background-color 0.25s var(--tf-ease), transform 0.25s var(--tf-ease);
 }
 
 .slider-button:hover {
-   background: var(--color-neutral-000);
+   background-color: var(--color-primary-700);
    transform: translateY(-2px);
 }
