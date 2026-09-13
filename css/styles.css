@@ -1,0 +1,578 @@
+*,
+*::after,
+*::before {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   text-decoration: none;
+   outline: none;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+}
+
+*::-moz-focus-inner {
+   border: 0;
+}
+
+*:focus {
+   outline: none;
+}
+
+:root {
+   /************************* fonts *************************/
+   --font-body: 'Mulish';
+
+   /************************* fluid body text *************************/
+   --fluid-body-text-p000: clamp(0.51rem, 0.13vi + 0.49rem, 0.64rem);
+   --fluid-body-text-p100: clamp(0.64rem, 0.16vi + 0.61rem, 0.8rem);
+   --fluid-body-text-p200: clamp(0.8rem, 0.2vi + 0.76rem, 1rem);
+   --fluid-body-text-p300: clamp(1rem, 0.25vi + 0.95rem, 1.25rem);
+   --fluid-body-text-p400: clamp(1.25rem, 0.31vi + 1.19rem, 1.56rem);
+   --fluid-body-text-p500: clamp(1.56rem, 0.39vi + 1.48rem, 1.95rem);
+   --fluid-body-text-p600: clamp(1.95rem, 0.49vi + 1.86rem, 2.44rem);
+   --fluid-body-text-p700: clamp(2.44rem, 0.61vi + 2.32rem, 3.05rem);
+   --fluid-body-text-p800: clamp(3.05rem, 0.76vi + 2.9rem, 3.81rem);
+   --fluid-body-text-p900: clamp(3.81rem, 0.95vi + 3.62rem, 4.77rem);
+
+   /************************* typography scale *************************/
+   --font-size-heading-01: 3.815rem;
+   --font-size-heading-02: 3.052rem;
+   --font-size-heading-03: 2.441rem;
+   --font-size-heading-04: 1.953rem;
+   --font-size-heading-05: 1.563rem;
+   --font-size-heading-06: 1.25rem;
+   --font-size-paragraph: 1rem;
+   --font-size-small: 0.8rem;
+   /************************* font weight *************************/
+   --font-weight-light: 300;
+   --font-weight-normal: 400;
+   --font-weight-medium: 600;
+   --font-weight-semibold: 700;
+   --font-weight-bold: 800;
+   --font-weight-black: 900;
+   /************************* colors *************************/
+   --color-primary-000: hsl(277, 77%, 95%);
+   --color-primary-100: hsl(277, 77%, 90%);
+   --color-primary-200: hsl(277, 77%, 80%);
+   --color-primary-300: hsl(277, 77%, 75%);
+   --color-primary-400: hsl(277, 77%, 70%);
+   --color-primary-500: hsl(277, 77%, 65%);
+   --color-primary-600: hsl(277, 77%, 55%);
+   --color-primary-700: hsl(277, 77%, 50%);
+   --color-primary-800: hsl(277, 77%, 45%);
+   --color-primary-900: hsl(277, 77%, 35%);
+   --color-primary-900a: #69159e;
+   /* neutral colors */
+   --color-neutral-000: hsl(277, 0%, 98%);
+   --color-neutral-100: hsl(277, 0%, 88%);
+   --color-neutral-200: hsl(277, 0%, 78%);
+   --color-neutral-300: hsl(277, 0%, 68%);
+   --color-neutral-400: hsl(277, 0%, 58%);
+   --color-neutral-500: hsl(277, 0%, 48%);
+   --color-neutral-600: hsl(277, 0%, 38%);
+   --color-neutral-700: hsl(277, 0%, 28%);
+   --color-neutral-800: hsl(277, 0%, 18%);
+   --color-neutral-900: hsl(277, 0%, 10%);
+   --color-neutral-900a: #1a1a1a;
+   /* augmented colors */
+   --color-augmented-000: hsl(277, 12%, 95%);
+   --color-augmented-100: hsl(277, 12%, 85%);
+   --color-augmented-200: hsl(277, 12%, 75%);
+   --color-augmented-300: hsl(277, 15%, 65%);
+   --color-augmented-400: hsl(277, 15%, 55%);
+   --color-augmented-500: hsl(277, 15%, 45%);
+   --color-augmented-600: hsl(277, 15%, 35%);
+   --color-augmented-700: hsl(277, 20%, 25%);
+   --color-augmented-800: hsl(277, 25%, 15%);
+   --color-augmented-900: hsl(277, 30%, 15%);
+   /************************* semantic colors *************************/
+   /* semantic inform colors */
+   --color-semantic-inform-400: hsl(215, 96%, 33%);
+   --color-semantic-inform-300: hsl(215, 96%, 38%);
+   --color-semantic-inform-200: hsl(215, 96%, 43%);
+   --color-semantic-inform-100: hsl(215, 96%, 48%);
+   /* semantic success colors */
+   --color-semantic-success-400: hsl(100, 96%, 33%);
+   --color-semantic-success-300: hsl(100, 96%, 38%);
+   --color-semantic-success-200: hsl(100, 96%, 43%);
+   --color-semantic-success-100: hsl(100, 96%, 48%);
+   /* semantic warn colors */
+   --color-semantic-warn-400: hsl(44.94, 96%, 50%);
+   --color-semantic-warn-300: hsl(44.94, 96%, 55%);
+   --color-semantic-warn-200: hsl(44.94, 96%, 60%);
+   --color-semantic-warn-100: hsl(44.94, 96%, 65%);
+   --color-semantic-warn-000: hsl(42.9, 74.4%, 49.02%);
+   /* semantic extreme warn colors */
+   --color-semantic-extreme-warn-400: hsl(28.47, 96%, 50%);
+   --color-semantic-extreme-warn-300: hsl(28.47, 96%, 55%);
+   --color-semantic-extreme-warn-200: hsl(28.47, 96%, 60%);
+   --color-semantic-extreme-warn-100: hsl(28.47, 96%, 65%);
+   /* semantic alert colors */
+   --color-semantic-alert-400: hsl(0, 96%, 33%);
+   --color-semantic-alert-300: hsl(0, 96%, 38%);
+   --color-semantic-alert-200: hsl(0, 96%, 43%);
+   --color-semantic-alert-100: hsl(0, 96%, 48%);
+
+   /**************** timing functions ****************/
+   --ease-basic-01: cubic-bezier(0.26, 0.1, 0.27, 1.55);
+   --ease-basic-02: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+   --ease: cubic-bezier(0.19, 0.08, 0.46, 0.99);
+   --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+   --ease-in: cubic-bezier(0.33, 0.02, 0.84, 0.75);
+   --ease-out: cubic-bezier(0.05, 0.21, 0.66, 0.98);
+   --ease-in-out: cubic-bezier(0.38, 0, 0.57, 0.99);
+   --ease-linear: cubic-bezier(0.19, 0.08, 0.84, 0.75);
+   --ease-smooth: cubic-bezier(0.1, 0.7, 0.6, 0.9);
+   --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+   --ease-snappy-01: cubic-bezier(0.5, 0, 0.4, 0.98);
+   --ease-snappy-02: cubic-bezier(.17, .67, .83, .67);
+
+   /**************** radius ****************/
+   --radius-000: 1px;
+   --radius-100: 2px;
+   --radius-200: 3px;
+   --radius-300: 5px;
+   --radius-400: 8px;
+   --radius-500: 13px;
+   --radius-600: 21px;
+   --radius-700: 34px;
+   --radius-800: 55px;
+   --radius-900: 50%;
+
+   /************************* border-radius *************************/
+   --br-border-radius-000: 1px;
+   --br-border-radius-100: 2px;
+   --br-border-radius-200: 3px;
+   --br-border-radius-300: 5px;
+   --br-border-radius-400: 8px;
+   --br-border-radius-500: 13px;
+   --br-border-radius-600: 21px;
+   --br-border-radius-700: 34px;
+   --br-border-radius-800: 55px;
+   --br-border-radius-900: 50%;
+
+
+   /************************* box shadows *************************/
+   /* box-shadow-right */
+   --bs-box-shadow-right-000: 8px 0px 8px -5px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-right-100: 8px 0px 8px -5px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-right-200: 8px 0px 8px -5px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-right-300: 8px 0px 8px -3px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-right-400: 8px 0px 8px -3px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-right-500: 8px 0px 8px -3px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-right-600: 8px 0px 8px 0px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-right-700: 8px 0px 8px 0px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-right-800: 8px 0px 8px 0px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-right-900: 8px 0px 8px 0px rgba(34, 40, 45, 0.55);
+   /* box-shadow-bottom */
+   --bs-box-shadow-bottom-000: 0px 8px 8px -5px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-100: 0px 8px 8px -5px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-200: 0px 8px 8px -5px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-300: 0px 8px 8px -3px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-400: 0px 8px 8px -3px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-500: 0px 8px 8px -3px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-600: 0px 8px 8px 0px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-700: 0px 8px 8px 0px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-800: 0px 8px 8px 0px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-900: 0px 8px 8px 0px rgba(34, 40, 45, 0.55);
+   /* box-shadow-bottom-right */
+   --bs-box-shadow-bottom-right-000: 3px 3px 8px -1px rgba(34, 40, 45, 0.15), 3px 3px 8px -1px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-right-100: 3px 3px 8px -1px rgba(34, 40, 45, 0.25), 3px 3px 8px -1px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-right-200: 3px 3px 8px -1px rgba(34, 40, 45, 0.35), 3px 3px 8px -1px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-right-300: 5px 3px 13px -1px rgba(34, 40, 45, 0.15), 5px 3px 13px -1px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-right-400: 5px 3px 13px -1px rgba(34, 40, 45, 0.25), 5px 3px 13px -1px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-right-500: 5px 3px 13px -1px rgba(34, 40, 45, 0.35), 5px 3px 13px -1px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-right-600: 5px 3px 21px -1px rgba(34, 40, 45, 0.15), 5px 3px 21px -1px rgba(34, 40, 45, 0.15);
+   --bs-box-shadow-bottom-right-700: 5px 3px 21px -1px rgba(34, 40, 45, 0.25), 5px 3px 21px -1px rgba(34, 40, 45, 0.25);
+   --bs-box-shadow-bottom-right-800: 5px 3px 21px -1px rgba(34, 40, 45, 0.35), 5px 3px 21px -1px rgba(34, 40, 45, 0.35);
+   --bs-box-shadow-bottom-right-900: 5px 3px 5px -1px rgba(34, 40, 45, 0.25), 5px 3px 5px -1px rgba(34, 40, 45, 0.25);
+
+
+   /**************** letter spacing ****************/
+   --ls-letter-spacing-100: 1px;
+   --ls-letter-spacing-200: 2px;
+   --ls-letter-spacing-300: 3px;
+   --ls-letter-spacing-400: 4px;
+   --ls-letter-spacing-500: 5px;
+   --ls-letter-spacing-minus-100: -1px;
+   --ls-letter-spacing-minus-200: -2px;
+   --ls-letter-spacing-minus-300: -3px;
+   --ls-letter-spacing-minus-400: -4px;
+   --ls-letter-spacing-minus-500: -5px;
+
+   /**************** margin spacing (soft 8px grid) ****************/
+   --m-0: 0px;
+   --m-1: 8px;
+   --m-2: 12px;
+   --m-3: 16px;
+   --m-4: 24px;
+   --m-5: 32px;
+   --m-6: 40px;
+   --m-7: 48px;
+   --m-8: 56px;
+   --m-9: 64px;
+   --m-10: 80px;
+
+   /**************** padding spacing (soft 8px grid) ****************/
+   --p-0: 0px;
+   --p-1: 8px;
+   --p-2: 12px;
+   --p-3: 16px;
+   --p-4: 24px;
+   --p-5: 32px;
+   --p-6: 40px;
+   --p-7: 48px;
+   --p-8: 56px;
+   --p-9: 64px;
+   --p-10: 80px;
+
+   /**************** spacing rem ****************/
+   --space-rem-000: 0.25rem; /* 4px */
+   --space-rem-100: 0.5rem; /* 8px */
+   --space-rem-200: 0.75rem; /* 12px */
+   --space-rem-300: 1rem; /* 16px */
+   --space-rem-400: 1.25rem; /* 20px */
+   --space-rem-500: 1.5rem; /* 24px */
+   --space-rem-600: 2rem; /* 32px */
+   --space-rem-700: 2.5rem; /* 40px */
+   --space-rem-800: 3rem; /* 48px */
+   --space-rem-900: 4rem; /* 64px */
+
+   /**************** spacing em ****************/
+   --space-em-000: 0.25rem; /* 4px */
+   --space-em-100: 0.5rem; /* 8px */
+   --space-em-200: 0.75rem; /* 12px */
+   --space-em-300: 1rem; /* 16px */
+   --space-em-400: 1.25rem; /* 20px */
+   --space-em-500: 1.5rem; /* 24px */
+   --space-em-600: 2rem; /* 32px */
+   --space-em-700: 2.5rem; /* 40px */
+   --space-em-800: 3rem; /* 48px */
+   --space-em-900: 4rem; /* 64px */
+
+
+   /**************** breakpoints ****************/
+   --breakpoint-xxs: 20rem; /*320px */
+   --breakpoint-xs: 30rem; /*480px */
+   --breakpoint-sm: 40rem; /*640px */
+   --breakpoint-md: 48rem; /*768px */
+   --breakpoint-lg: 64rem; /*1024px;*/
+   --breakpoint-xl: 80rem; /*1280px;*/
+   --breakpoint-2xl: 96rem; /*1536px;*/
+   --breakpoint-3xl: 120rem; /*1920px;*/
+
+}
+
+html {
+   width: 100vw;
+   height: 100vh;
+   min-width: 100vw;
+   min-height: 100vh;
+   scroll-behavior: smooth;
+   /*scroll-padding-top: 100px;*/
+   scrollbar-width: none;
+   overflow-x: hidden;
+   -ms-overflow-style: none;
+   font-size: 100%;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+   html {
+      font-size: 83.333%;
+   }
+}
+
+body {
+   position: relative;
+   min-height: 100vh;
+   width: 100%;
+   z-index: 1;
+   overflow-x: hidden;
+   overflow-y: auto;
+   font-family: var(--font-body), sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-optical-sizing: auto;
+   text-rendering: optimizeLegibility;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   line-height: 1.5;
+   color: var(--color-neutral-900);
+   background-color: var(--color-augmented-000);
+}
+
+/*===============================================================
+       Typography Scale - 1.250 - Major Third
+==================================================================*/
+h1, h2, h3, h4, h5, h6 {
+   font-family: var(--font-body), sans-serif;
+   font-weight: 700;
+   font-style: normal;
+   font-optical-sizing: auto;
+   text-rendering: optimizeLegibility;
+   line-height: 1.3;
+}
+
+h1 {
+   font-size: 3.815rem;
+}
+
+h2 {
+   font-size: 3.052rem;
+}
+
+h3 {
+   font-size: 2.441rem;
+}
+
+h4 {
+   font-size: 1.953rem;
+}
+
+h5 {
+   font-size: 1.563rem;
+}
+
+h6 {
+   font-size: 1.25rem;
+}
+
+
+p, small {
+   font-family: var(--font-body), sans-serif;
+   font-weight: 400;
+   font-style: normal;
+   font-optical-sizing: auto;
+   text-rendering: optimizeLegibility;
+}
+
+p {
+   font-size: 1rem;
+   margin-bottom: 1em;
+}
+
+small {
+   font-size: 0.8rem;
+}
+
+ul {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+   cursor: pointer;
+}
+
+button {
+   cursor: pointer;
+}
+
+img {
+   height: auto;
+}
+
+/*===============================================================
+          utility classes
+==================================================================*/
+.utils-container-fluid {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 16px;
+   padding-right: 16px;
+}
+
+.utils-container {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   padding-left: 16px;
+   padding-right: 16px;
+}
+
+@media (min-width: 576px) {
+   .utils-container {
+      max-width: 544px;
+   }
+}
+
+@media (min-width: 768px) {
+   .utils-container {
+      max-width: 720px;
+   }
+}
+
+@media (min-width: 992px) {
+   .utils-container {
+      max-width: 960px;
+   }
+}
+
+@media (min-width: 1360px) {
+   .utils-container {
+      max-width: 1240px;
+   }
+}
+
+
+/*===============================================================
+          section styles
+==================================================================*/
+.section {
+   position: relative;
+   width: 100vw;
+   min-height: 100vh;
+
+}
+
+.section-four {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 120px 0;
+   background-color: var(--color-neutral-300);
+}
+
+/*===============================================================
+          testimonial section
+==================================================================*/
+.testimonial-section-container {
+   position: relative;
+   width: 100%;
+   height: fit-content;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+
+}
+
+.testimonial-section-title {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 3em;
+}
+
+.testimonial-title {
+   text-align: center;
+   font-weight: 900;
+}
+.brand-color {
+   color: var(--color-primary-900);
+}
+
+.testimonial-paragraph {
+   position: relative;
+   margin: 0 auto 0.5em; /* keeps it centered */
+   max-width: 55ch; /* limits characters per line (roughly) */
+   text-align: center; /* optional: center the text itself */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 1rem;
+   font-weight: 500;
+   line-height: 1.5;
+   color: var(--color-augmented-800);
+}
+
+
+
+
+.testimonial-carousel {
+   display: grid;
+   grid-auto-flow: column;
+   grid-auto-columns: calc((100% / 3) - 12px);
+   gap: 16px;
+   overflow-x: auto;
+   scroll-snap-type: x mandatory;
+   scroll-behavior: smooth;
+   scrollbar-width: none;
+}
+
+.testimonial-carousel::-webkit-scrollbar {
+   display: none;
+}
+
+
+.testimonial-card {
+   scroll-snap-align: start;
+   height: fit-content;
+   list-style: none;
+   background: var(--color-neutral-100);
+   /*border-radius: 8px;*/
+   display: flex;
+   cursor: grabbing;
+   width: 98%;
+   /*padding-bottom: 15px;*/
+   /*align-items: center;
+   justify-content: center;*/
+   flex-direction: column;
+
+   border: 1px solid var(--color-primary-900);
+   border-radius: var(--br-border-radius-400);
+   padding: 24px;
+   box-shadow: var(--bs-box-shadow-bottom-right-100);
+}
+
+.testimonial-image {
+   width: 72px;
+   height: 72px;
+   border-radius: 50%;
+   object-fit: cover;
+   border: 3px solid var(--color-primary-900);
+}
+
+.testimonial-name {
+   font-size: 1.1rem;
+   margin-bottom: 4px;
+}
+
+.role {
+   color: var(--color-neutral-400);
+   font-size: 0.92rem;
+}
+
+.testimonial-card-paragraph {
+   text-align: justify;
+   text-justify: distribute;
+   color: var(--color-neutral-800);
+}
+
+.testimonial-rating {
+   color: var(--color-primary-900);
+   letter-spacing: 2px;
+   margin-bottom: 16px;
+   font-size: 1.25rem;
+}
+
+.slider-controls {
+   display: flex;
+   justify-content: center;
+   gap: 32px;
+   margin-top: 28px;
+}
+
+.slider-button {
+   width: 48px;
+   height: 48px;
+   padding: 12px;
+   border: 2px solid var(--color-primary-900);
+   background: var(--color-primary-900);
+   color: var(--color-neutral-100);
+   border-radius: 50%;
+   cursor: pointer;
+   font-size: 1.1rem;
+   transition: all 0.25s ease;
+}
+
+.slider-button:hover {
+   background: var(--color-neutral-000);
+   transform: translateY(-2px);
+}
