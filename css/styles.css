@@ -482,6 +482,9 @@ img {
    color: var(--color-augmented-800);
 }
 
+.testimonial-slider {
+   cursor: grab;
+}
 
 .testimonial-carousel {
    display: grid;
@@ -578,4 +581,21 @@ img {
 .slider-button:hover {
    background-color: var(--color-primary-700);
    transform: translateY(-2px);
+}
+
+.slider-button img {
+   width: 20px;
+   height: 20px;
+}
+
+@media screen and (max-width: 900px) {
+   .testimonial-slider .testimonial-carousel {
+      grid-auto-columns: calc((100% / 2) - 8px);
+   }
+}
+
+@media screen and (max-width: 600px) {
+   .testimonial-slider .testimonial-carousel {
+      grid-auto-columns: 100%
+   }
 }
