@@ -1,81 +1,118 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-   console.log('DOMContentLoaded is loaded and ready to use');
-
    const testimonialSlider = document.getElementById('testimonial-slider');
    const testimonialCarousel = document.getElementById('testimonial-carousel');
+   const testimonialCards = testimonialCarousel.querySelectorAll('.testimonial-card');
    const prevButton = document.getElementById('prev-button');
    const nextButton = document.getElementById('next-button');
 
-   const firstCard = testimonialCarousel.querySelector('.testimonial-card')
-   const firstCardWidth = firstCard.offsetWidth;
+   if (!testimonialSlider || !testimonialCarousel || !testimonialCards.length) return;
 
    let isDragging = false;
-   let startX;
-   let startScrollLeft;
+   let startX = 0;
+   let startScrollLeft = 0;
+   let autoPlayInterval = null;
 
-   function handleIsDraggingStart(e) {
+   function getPointerX(e) {
+      return e.touches ? e.touches[0].pageX : e.pageX;
+   }
+
+   function getCardStep() {
+      const firstCard = testimonialCards[0];
+      const cardStyle = window.getComputedStyle(firstCard);
+      const marginRight = parseFloat(cardStyle.marginRight) || 0;
+      const marginLeft = parseFloat(cardStyle.marginLeft) || 0;
+      return firstCard.offsetWidth + marginLeft + marginRight;
+   }
+
+   function getMaxScrollLeft() {
+      return testimonialCarousel.scrollWidth - testimonialCarousel.clientWidth;
+   }
+
+   function scrollByCard(direction) {
+      const step = getCardStep();
+      testimonialCarousel.scrollBy({
+         left: direction * step,
+         behavior: 'smooth'
+      });
+   }
+
+   function startDragging(e) {
       isDragging = true;
       testimonialCarousel.classList.add('is-dragging');
-      startX = e.pageX;
+      startX = getPointerX(e);
       startScrollLeft = testimonialCarousel.scrollLeft;
+      stopAutoPlay();
    }
 
-   function handleIsDraggingStop() {
+   function stopDragging() {
       isDragging = false;
+      testimonialCarousel.classList.remove('is-dragging');
    }
 
-   function handleIsDragging(e) {
-      if (!isDragging) {
-         return;
-      }
+   function drag(e) {
+      if (!isDragging) return;
+
       e.preventDefault();
-      /*const x = e.pageX - testimonialCarousel.offsetLeft;
-      const walk = (x - startX) * 2;
-      testimonialCarousel.scrollLeft = startScrollLeft - walk;*/
+      const currentX = getPointerX(e);
+      const walk = currentX - startX;
+      testimonialCarousel.scrollLeft = startScrollLeft - walk;
+   }
 
-      // calculate the new scroll position
-      const newScrollLeft = startScrollLeft - (e.pageX - startX);
+   function startAutoPlay() {
+      stopAutoPlay();
 
-      // check if the new scroll position is within the bounds of the carousel
-      if (newScrollLeft <= 0 ||
-         newScrollLeft >= (testimonialCarousel.scrollWidth - testimonialCarousel.offsetWidth)) {
+      if (window.innerWidth < 768) return;
 
-         // if so, prevent further dragging
-         isDragging = false;
-         return;
+      autoPlayInterval = setInterval(() => {
+         const step = getCardStep();
+         const maxScroll = getMaxScrollLeft();
+
+         if (testimonialCarousel.scrollLeft + step >= maxScroll) {
+            testimonialCarousel.scrollTo({
+               left: 0,
+               behavior: 'smooth'
+            });
+         } else {
+            testimonialCarousel.scrollBy({
+               left: step,
+               behavior: 'smooth'
+            });
+         }
+      }, 3000);
+   }
+
+   function stopAutoPlay() {
+      if (autoPlayInterval) {
+         clearInterval(autoPlayInterval);
+         autoPlayInterval = null;
       }
-      // otherwise, update the scroll position of the testimonialCarousel
-      testimonialCarousel.scrollLeft = newScrollLeft;
-
    }
 
-   function handleAutoPlay() {
-      if (isDragging) return;
-      testimonialCarousel.scrollLeft += 1;
-   }
-
-   testimonialCarousel.addEventListener('mousedown', handleIsDraggingStart);
-   testimonialCarousel.addEventListener('mouseup', handleIsDraggingStop);
-   testimonialCarousel.addEventListener('mousemove', handleIsDragging);
-   testimonialCarousel.addEventListener('mouseleave', handleIsDraggingStop);
-   testimonialCarousel.addEventListener('touchstart', handleIsDraggingStart);
-   testimonialCarousel.addEventListener('touchend', handleIsDraggingStop);
-   testimonialCarousel.addEventListener('touchmove', handleIsDragging);
-   testimonialSlider.addEventListener('mouseleave', handleAutoPlay);
-
-   testimonialCarousel.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      testimonialCarousel.scrollLeft += e.deltaY;
+   prevButton.addEventListener('click', () => {
+      scrollByCard(-1);
    });
 
-   testimonialCarousel.addEventListener('scroll', () => {
-      prevButton.disabled = testimonialCarousel.scrollLeft === 0;
-      nextButton.disabled =
-         testimonialCarousel.scrollLeft + testimonialCarousel.offsetWidth >= testimonialCarousel.scrollWidth;
+   nextButton.addEventListener('click', () => {
+      scrollByCard(1);
    });
+
+   testimonialCarousel.addEventListener('mousedown', startDragging);
+   testimonialCarousel.addEventListener('mousemove', drag);
+   testimonialCarousel.addEventListener('mouseup', stopDragging);
+   testimonialCarousel.addEventListener('mouseleave', stopDragging);
+
+   testimonialCarousel.addEventListener('touchstart', startDragging, { passive: true });
+   testimonialCarousel.addEventListener('touchmove', drag, { passive: false });
+   testimonialCarousel.addEventListener('touchend', stopDragging);
 
    testimonialCarousel.addEventListener('dragstart', (e) => e.preventDefault());
-   testimonialCarousel.addEventListener('drag', (e) => e.preventDefault());
+
+   testimonialSlider.addEventListener('mouseenter', stopAutoPlay);
+   testimonialSlider.addEventListener('mouseleave', startAutoPlay);
+
+   window.addEventListener('resize', startAutoPlay);
+
+   startAutoPlay();
 });
