@@ -531,6 +531,7 @@ img {
    display: flex;
    align-items: center;
    gap: 14px;
+   cursor: grab;
 }
 
 .testimonial-carousel {
@@ -569,6 +570,11 @@ img {
    padding: 24px;
    scroll-snap-align: start;
    user-select: none;
+   cursor: grabbing;
+}
+
+.testimonial-carousel:hover {
+   cursor: grab;
 }
 
 .card-top {
