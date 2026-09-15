@@ -23,97 +23,147 @@
     <script defer src='./js/scripts.js'></script>
 </head>
 <body>
-<section class='section section-four' id='testimonial'>
+<section class='testimonial-section section-four'>
     <div class='utils-container'>
-        <div class='testimonial-section-container'>
-            <div class='testimonial-section-title'>
-                <h2 class='testimonial-title'><span class='brand-color'>Our</span>Testimonials
-                </h2>
-                <p class='testimonial-paragraph'>
-                    We build websites that build your business. Read what clients say about working
-                    with our team from the first concept to launch.
-                </p>
+        <div class='testimonial-section-title'>
+            <h2 class='testimonial-title'><span class='brand-color'>Our</span>Testimonials
+            </h2>
+            <p class='testimonial-paragraph'>
+                We build websites that build your business. Read what clients say
+                about working with our team.
+            </p>
+        </div>
+        <!-- testimonial slider begins -->
+        <div class='testimonial-slider' id='testimonial-slider'>
+            <button aria-label='Previous testimonial' class='slider-btn prev'
+                    id='prev-button'>
+                &#10094;
+            </button>
+            
+            <div class='testimonial-carousel' id='testimonial-carousel'>
+                <article class='testimonial-card'>
+                    <div class='card-top'>
+                        <img alt='Sarah Johnson' class='avatar'
+                             draggable='false'
+                             src='./img/testimonials/reviewer-01.jpg'/>
+                        <div>
+                            <h3>Sarah Johnson</h3>
+                            <span>Marketing Director</span>
+                        </div>
+                    </div>
+                    <div class='stars'>★★★★★</div>
+                    <p>
+                        The team delivered a beautiful, responsive website that
+                        helped
+                        strengthen
+                        our online presence. The entire process felt smooth,
+                        organized,
+                        and professional.
+                    </p>
+                </article>
+                
+                <article class='testimonial-card'>
+                    <div class='card-top'>
+                        <img alt='Michael Lee' class='avatar'
+                             draggable='false'
+                             src='./img/testimonials/reviewer-02.jpg'/>
+                        <div>
+                            <h3>Michael Lee</h3>
+                            <span>Startup Founder</span>
+                        </div>
+                    </div>
+                    <div class='stars'>★★★★★</div>
+                    <p>
+                        Their attention to detail and strong design sense really
+                        stood
+                        out.
+                        The final result was modern, fast, and easy to use on every
+                        device.
+                    </p>
+                </article>
+                
+                <article class='testimonial-card'>
+                    <div class='card-top'>
+                        <img alt='Emily Davis' class='avatar'
+                             draggable='false'
+                             src='./img/testimonials/reviewer-03.jpg'/>
+                        <div>
+                            <h3>Emily Davis</h3>
+                            <span>Business Owner</span>
+                        </div>
+                    </div>
+                    <div class='stars'>★★★★★</div>
+                    <p>
+                        We needed a cleaner and more professional website, and they
+                        exceeded
+                        expectations. Communication was excellent from start to
+                        finish.
+                    </p>
+                </article>
+                
+                <article class='testimonial-card'>
+                    <div class='card-top'>
+                        <img alt='Daniel Carter' class='avatar'
+                             draggable='false'
+                             src='./img/testimonials/reviewer-04.jpg'/>
+                        <div>
+                            <h3>Daniel Carter</h3>
+                            <span>Operations Manager</span>
+                        </div>
+                    </div>
+                    <div class='stars'>★★★★★</div>
+                    <p>
+                        Our old website felt outdated, but this new version feels
+                        polished,
+                        modern, and much more aligned with our brand.
+                    </p>
+                </article>
+                
+                <article class='testimonial-card'>
+                    <div class='card-top'>
+                        <img alt='Olivia Brown' class='avatar'
+                             draggable='false'
+                             src='./img/testimonials/reviewer-05.jpg'/>
+                        <div>
+                            <h3>Olivia Brown</h3>
+                            <span>Creative Lead</span>
+                        </div>
+                    </div>
+                    <div class='stars'>★★★★★</div>
+                    <p>
+                        The slider looks fantastic and performs smoothly on desktop
+                        and
+                        mobile.
+                        It added a premium touch to our website presentation.
+                    </p>
+                </article>
+                
+                <article class='testimonial-card'>
+                    <div class='card-top'>
+                        <img alt='James Wilson' class='avatar'
+                             draggable='false'
+                             src='./img/testimonials/reviewer-06.jpg'/>
+                        <div>
+                            <h3>James Wilson</h3>
+                            <span>Agency Partner</span>
+                        </div>
+                    </div>
+                    <div class='stars'>★★★★★</div>
+                    <p>
+                        Their development work was clean, responsive, and easy to
+                        customize.
+                        Everything worked exactly as we needed with a polished final
+                        result.
+                    </p>
+                </article>
             </div>
             
-            <div class='testimonial-slider' id='testimonial-slider' aria-label='Testimonial slider'>
-                <ul class='testimonial-carousel' id='testimonial-carousel' aria-label='Testimonial carousel' role='list'>
-                    <li class='testimonial-card' aria-label='Testimonial card'>
-                        <div class='top-row'>
-                            <img src='./img/testimonials/reviewer-01.jpg' alt='testimonial image' class='testimonial-image' draggable='false'>
-                            <div class='testimonial-info'>
-                                <h3 class='testimonial-name'>Sarah Johnson</h3>
-                                <p class='testimonial-position'>Marketing Director</p>
-                            </div>
-                        </div>
-                        <div class='testimonial-rating'>★★★★★</div>
-                        <p class='testimonial-card-paragraph'>Working with this web development agency was a smooth and professional experience from start to finish. They delivered a fast, modern website that looks great and has already improved our online presence.</p>
-                    </li>
-                    <li class='testimonial-card' aria-label='Testimonial card'>
-                        <div class='top-row'>
-                            <img src='./img/testimonials/reviewer-02.jpg' alt='testimonial image' class='testimonial-image' draggable='false'>
-                            <div class='testimonial-info'>
-                                <h3 class='testimonial-name'>Michael Brown</h3>
-                                <p class='testimonial-position'>Startup Founder</p>
-                            </div>
-                        </div>
-                        <div class='testimonial-rating'>★★★★★</div>
-                        <p class='testimonial-card-paragraph'>Their team understood exactly what we needed and turned our ideas into a clean, functional website. Communication was excellent throughout the project, and everything was delivered on time.</p>
-                    </li>
-                    <li class='testimonial-card' aria-label='Testimonial card'>
-                        <div class='top-row'>
-                            <img src='./img/testimonials/reviewer-03.jpg' alt='testimonial image' class='testimonial-image' draggable='false'>
-                            <div class='testimonial-info'>
-                                <h3 class='testimonial-name'>Wang Yan</h3>
-                                <p class='testimonial-position'>Business Owner</p>
-                            </div>
-                        </div>
-                        <div class='testimonial-rating'>★★★★★</div>
-                        <p class='testimonial-card-paragraph'>We were impressed by both the design quality and technical expertise they brought to our project. The final website is user-friendly, responsive, and has helped us attract more customers.</p>
-                    </li>
-                    <li class='testimonial-card' aria-label='Testimonial card'>
-                        <div class='top-row'>
-                            <img src='./img/testimonials/reviewer-04.jpg' alt='testimonial image' class='testimonial-image' draggable='false'>
-                            <div class='testimonial-info'>
-                                <h3 class='testimonial-name'>Jeremy Waverly</h3>
-                                <p class='testimonial-position'>Video Editor</p>
-                            </div>
-                        </div>
-                        <div class='testimonial-rating'>★★★★★</div>
-                        <p class='testimonial-card-paragraph'>From the initial consultation to the final launch, they were reliable, knowledgeable, and easy to work with. Our new website not only looks amazing but also performs flawlessly across all devices.</p>
-                    </li>
-                    <li class='testimonial-card' aria-label='Testimonial card'>
-                        <div class='top-row'>
-                            <img src='./img/testimonials/reviewer-05.jpg' alt='testimonial image' class='testimonial-image' draggable='false'>
-                            <div class='testimonial-info'>
-                                <h3 class='testimonial-name'>Olivia Davis</h3>
-                                <p class='testimonial-position'>Creative Lead</p>
-                            </div>
-                        </div>
-                        <div class='testimonial-rating'>★★★★★</div>
-                        <p class='testimonial-card-paragraph'>Their design sense and technical expertise made a huge difference. The website feels refined, intuitive, and aligned perfectly with our brand identity. It's a pleasure to work with them.</p>
-                    </li>
-                    <li class='testimonial-card' aria-label='Testimonial card' role='listitem'>
-                        <div class='top-row'>
-                            <img src='./img/testimonials/reviewer-06.jpg' alt='testimonial image' class='testimonial-image' draggable='false'>
-                            <div class='testimonial-info'>
-                                <h3 class='testimonial-name'>Daniel Carter</h3>
-                                <p class='testimonial-position'>Operations Manager</p>
-                            </div>
-                        </div>
-                        <div class='testimonial-rating'>★★★★★</div>
-                        <p class='testimonial-card-paragraph'>This web development agency delivered exactly what we needed and more. The website is modern, responsive, and professionally built, and the entire process was smooth from start to finish.</p>
-                    </li>
-                </ul>
-                <div class='slider-control-buttons'>
-                    <button class="slider-button prev" id='prev-button' aria-label="Previous button" role='button'>
-                        <img src='./img/testimonials/arrow-right-white.png' alt='Arrow pointing right' width='128' height='128'>
-                    </button>
-                    <button class="slider-button next" id='next-button' aria-label="Next button" role='button'>
-                        <img src='./img/testimonials/arrow-left-white.png' alt='Arrow pointing left' width='128' height='128'>
-                    </button>
-                </div>
-            </div>
+            <button aria-label='Next testimonial' class='slider-btn next'
+                    id='next-button'>
+                &#10095;
+            </button>
         </div>
+        <!-- testimonial slider ends -->
     </div>
 </section>
 </body>
