@@ -437,6 +437,56 @@ img {
    padding: 120px 0;
    background-color: var(--color-neutral-300);
 }
+/*===============================================================
+       preloader styles
+==================================================================*/
+.preloader {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   width: 100vw;
+   height: 100vh;
+   z-index: 10000;
+   overflow: hidden;
+   display: -webkit-box;
+   display: flex;
+   -webkit-box-align: center;
+   align-items: center;
+   -webkit-box-pack: center;
+   justify-content: center;
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+   background: var(--color-augmented-000);
+
+}
+
+.preloader-gif {
+   width: 25%;
+   align-self: center;
+}
+
+/* Extra Small Devices (Landscape Phones & Portrait Tablets) */
+@media (max-width: 767px) {
+   .preloader-gif {
+      width: 50%;
+
+   }
+}
+
+/*===============================================================
+          preloader keyframes
+==================================================================*/
+@keyframes fadeIn {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
 
 /*===============================================================
           testimonial section
