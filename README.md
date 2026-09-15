@@ -12,7 +12,6 @@
 - [x] Draggable
 - [x] Normalize.css
 - [x] Google Fonts
-- [x] Font Awesome Icons
 - [x] Mobile Friendly
 
 ### [Live preview](https://js-testimonial-draggable-slider.vercel.app/)
