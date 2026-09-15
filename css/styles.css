@@ -624,7 +624,7 @@ img {
    cursor: pointer;
    flex-shrink: 0;
    font-size: 1.15rem;
-   transition: all 0.25s ease;
+   transition: all 0.25s var(--tf-ease);
 }
 
 .slider-btn:hover {

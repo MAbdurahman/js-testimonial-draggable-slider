@@ -14,3 +14,7 @@
 - [x] Google Fonts
 - [x] Font Awesome Icons
 - [x] Mobile Friendly
+
+### [Live preview](https://js-testimonial-draggable-slider.vercel.app/)
+
+<img width="800" height="376" alt="Image" src="https://github.com/user-attachments/assets/736e69e6-896d-4c57-aad7-7764def2c4df" />
